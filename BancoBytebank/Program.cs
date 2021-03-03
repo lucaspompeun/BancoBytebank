@@ -1,4 +1,5 @@
 ﻿using BancoBytebank.Funcionarios;
+using BancoBytebank.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,28 @@ namespace BancoBytebank
     {
         static void Main(string[] args)
         {
-            CalcularBonificacao();
+            //CalcularBonificacao();
+
+            UsarSistema();
 
             Console.ReadLine();
+        }
+
+        public static void UsarSistema()
+        {
+            SistemaInterno sistemaInterno = new SistemaInterno();
+
+            Diretor roberta = new Diretor("555.999.444-89");
+            roberta.Nome = "Roberta";
+            roberta.Senha = "123";
+
+            GerenteDeConta camila = new GerenteDeConta("558.555.555-55");
+            camila.Nome = "Camila";
+            camila.Senha = "abc";
+
+            sistemaInterno.Logar(roberta, "123");
+            sistemaInterno.Logar(camila, "abc");
+
         }
 
         public static void CalcularBonificacao()
